@@ -16,6 +16,12 @@ class MainActivity : AppCompatActivity() {
         buttonCalculate.setOnClickListener {
             calculatePayment(it)
         }
+
+        val buttonReset = findViewById<Button>(R.id.buttonReset)
+
+        buttonReset.setOnClickListener {
+            resetButton(it)
+        }
     }
 
     private fun calculatePayment(viewThatIsClicked: View)
@@ -126,5 +132,24 @@ class MainActivity : AppCompatActivity() {
         val textViewPayment = findViewById<TextView>(R.id.textViewPayment)
 
         textViewPayment.setText("RM " + premium)
+    }
+
+    private fun resetButton(viewThatIsClicked: View)
+    {
+        val spinnerAge = findViewById<Spinner>(R.id.spinnerAge)
+
+        spinnerAge.setSelection(0)
+
+        val radioButtonMale = findViewById<RadioButton>(R.id.radioButtonMale)
+
+        radioButtonMale.isChecked = true
+
+        val checkBoxSmoker = findViewById<CheckBox>(R.id.checkBoxSmoker)
+
+        checkBoxSmoker.isChecked = false
+
+        val textViewPayment = findViewById<TextView>(R.id.textViewPayment)
+
+        textViewPayment.setText("")
     }
 }
